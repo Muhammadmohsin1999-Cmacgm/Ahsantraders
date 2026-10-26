@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------------------
+   BRAND COLOR VARIABLES & GLOBAL STYLES
+   -------------------------------------------------------------------------- */
+:root {
+  --color-ivory: #f8f5f0;
+  --color-chocolate: #4e342e;
+  --color-gold: #c5a028;
+  --color-charcoal: #1e1e1e;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   TOP TICKER MARQUEE ANIMATION
+   -------------------------------------------------------------------------- */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* --------------------------------------------------------------------------
+   FLOATING ANIMATIONS (HERO SECTION & ORBS)
+   -------------------------------------------------------------------------- */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+@keyframes floatDelayed {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(15px) rotate(-2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 8s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT GLASSMORPHISM MODAL & PORTAL CARDS
+   -------------------------------------------------------------------------- */
+.glass-modal-card {
+  background: rgba(248, 245, 240, 0.98) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 2px solid #4e342e !important;
+  box-shadow:
+    0 25px 60px -15px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(78, 52, 46, 0.15) !important;
+}
+
+.portal-card {
+  background: #ffffff !important;
+  border: 1.5px solid rgba(78, 52, 46, 0.2) !important;
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #4e342e !important;
+  box-shadow: 0 20px 40px -10px rgba(78, 52, 46, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   PORTAL AUTH MODAL INPUTS, LABELS & TEXT OVERRIDES
+   -------------------------------------------------------------------------- */
+/* Labels & Headings forced to Solid Black */
+#glassy-auth-overlay label,
+#glassy-auth-overlay .block,
+#glassy-auth-overlay div[class*="space-y-1"] > label {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+#glassy-auth-overlay h3 {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+#glassy-auth-overlay p {
+  color: #1e1e1e !important;
+  font-weight: 600 !important;
+}
+
+/* Sharp White Input Fields with Chocolate Borders & Black Input Text */
+#glassy-auth-overlay input {
+  background-color: #ffffff !important;
+  border: 2px solid #4e342e !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 0.75rem !important;
+}
+
+#glassy-auth-overlay input::placeholder {
+  color: rgba(0, 0, 0, 0.45) !important;
+  font-weight: 500 !important;
+}
+
+#glassy-auth-overlay input:focus {
+  border-color: #c5a028 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(78, 52, 46, 0.2) !important;
+}
+
+/* Role Selector Container & Buttons */
+#glassy-auth-overlay .bg-ivory {
+  background-color: #efece6 !important;
+  border: 1.5px solid #4e342e !important;
+}
+
+#glassy-auth-overlay button[id^="m-role-"] {
+  font-weight: 700;
+}
+
+/* Selected Role Tab Dynamic Highlight */
+#glassy-auth-overlay button[id^="m-role-"].bg-chocolate,
+#glassy-auth-overlay button[id^="m-role-"][class*="bg-[#4E342E]"] {
+  background-color: #4e342e !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Login vs Sign Up Mode Tabs */
+#glassy-auth-overlay button[id^="m-tab-"] {
+  font-weight: 700 !important;
+}
+
+#glassy-auth-overlay button[id^="m-tab-"].text-chocolate {
+  color: #4e342e !important;
+  border-color: #4e342e !important;
+  font-weight: 900 !important;
+}
+
+/* Modal Action Submit Button */
+#glassy-submit-btn {
+  background-color: #4e342e !important;
+  color: #ffffff !important;
+  border: 2px solid #4e342e !important;
+  font-weight: 800 !important;
+}
+
+#glassy-submit-btn:hover {
+  background-color: #3b2823 !important;
+  border-color: #c5a028 !important;
+}
+
+/* --------------------------------------------------------------------------
+   CUSTOM SCROLLBAR STYLING
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f5f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #4e342e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a028;
+}
